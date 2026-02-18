@@ -6,6 +6,13 @@
 YOUR NAME: _____________________  (Find your folder: 01_MUTHO_Epilepsy, etc.)
 
 ================================================================================
+  BLAST ACTIVITY (optional)
+================================================================================
+
+  Practice sequence search: open BLAST_ACTIVITY.md and sequences_for_blast.fa
+  Go to https://blast.ncbi.nlm.nih.gov - no software to install!
+
+================================================================================
   TEACHING SLIDES (optional - review first!)
 ================================================================================
 

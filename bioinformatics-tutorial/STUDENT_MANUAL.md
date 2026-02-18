@@ -35,6 +35,8 @@
 
 **Teaching slides:** Open **`slides/index.html`** in your browser for an 11-slide visual overview. Use ← → arrows to navigate.
 
+**BLAST activity:** Open **`BLAST_ACTIVITY.md`** and use **`sequences_for_blast.fa`** to practice sequence similarity search at https://blast.ncbi.nlm.nih.gov (web only, no installation).
+
 ---
 
 ## Your Project Assignment
