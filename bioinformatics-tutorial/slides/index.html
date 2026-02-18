@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RNA-seq Tutorial - Teaching Slides</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; overflow: hidden; background: #1a1a2e; }
+    
+    .slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 3rem; text-align: center; opacity: 0; pointer-events: none; transition: opacity 0.4s;
+    }
+    .slide.active { opacity: 1; pointer-events: auto; }
+    
+    .slide h1 { color: #0d6efd; font-size: 2.2rem; margin-bottom: 1rem; }
+    .slide h2 { color: #4a9eff; font-size: 1.5rem; margin: 1rem 0; }
+    .slide p { color: #e0e0e0; font-size: 1.1rem; line-height: 1.7; max-width: 700px; }
+    .slide ul { text-align: left; color: #e0e0e0; margin: 1rem auto; max-width: 600px; }
+    .slide li { margin: 0.5rem 0; }
+    
+    .slide-num { position: fixed; bottom: 1rem; right: 1.5rem; color: #666; font-size: 0.9rem; }
+    .progress { position: fixed; bottom: 0; left: 0; height: 3px; background: #0d6efd; transition: width 0.3s; }
+    
+    .highlight { background: #0d6efd33; padding: 0.3rem 0.6rem; border-radius: 4px; }
+    .steps { counter-reset: s; text-align: left; margin: 1rem auto; max-width: 500px; }
+    .steps li { list-style: none; counter-increment: s; margin: 0.8rem 0; padding-left: 2.5rem; position: relative; }
+    .steps li::before { content: counter(s); position: absolute; left: 0; width: 1.8rem; height: 1.8rem; background: #0d6efd; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <span class="slide-num" id="slideNum"></span>
+
+  <div class="slide active" data-slide="1">
+    <h1>RNA-seq Tutorial</h1>
+    <h2>From Design to DEG Analysis</h2>
+    <p style="margin-top: 1.5rem;">For 7 PhD Students – No Python Required</p>
+    <p style="color: #888; margin-top: 2rem;">Use ← → arrows or swipe to navigate</p>
+  </div>
+
+  <div class="slide" data-slide="2">
+    <h1>What Is RNA-seq?</h1>
+    <p>RNA sequencing measures which genes are expressed (turned on) in your sample and how much.</p>
+    <ul>
+      <li>More reads = more mRNA = gene is more active</li>
+      <li>We compare counts between conditions (e.g., healthy vs diseased)</li>
+      <li>Goal: find genes that change significantly</li>
+    </ul>
+  </div>
+
+  <div class="slide" data-slide="3">
+    <h1>Experimental Design</h1>
+    <ul class="steps">
+      <li>Define your groups (Control vs Treatment)</li>
+      <li>Use biological replicates (at least 3–4 per group)</li>
+      <li>Keep groups balanced</li>
+      <li>Randomize to avoid batch effects</li>
+    </ul>
+  </div>
+
+  <div class="slide" data-slide="4">
+    <h1>Count Matrix</h1>
+    <p>Rows = genes, Columns = samples, Values = read counts</p>
+    <p style="margin-top: 1rem; font-family: monospace; font-size: 0.95rem;">GENE_A:  120  115  350  340  (Control → Treatment)</p>
+    <p style="color: #888;">Higher in treatment = upregulated</p>
+  </div>
+
+  <div class="slide" data-slide="5">
+    <h1>DESeq2 – Differential Expression</h1>
+    <p>Statistical test: Which genes change between conditions?</p>
+    <ul>
+      <li><strong>log2 Fold Change</strong> – how much (positive = up, negative = down)</li>
+      <li><strong>padj</strong> – adjusted p-value (&lt; 0.05 = significant)</li>
+      <li><strong>DEG</strong> – differentially expressed gene</li>
+    </ul>
+  </div>
+
+  <div class="slide" data-slide="6">
+    <h1>Volcano Plot</h1>
+    <p>X = fold change | Y = significance</p>
+    <p>Red points = significant DEGs (padj &lt; 0.05, |log2FC| &gt; 1)</p>
+    <p style="margin-top: 1rem; color: #888;">Upper right = upregulated | Upper left = downregulated</p>
+  </div>
+
+  <div class="slide" data-slide="7">
+    <h1>MA Plot</h1>
+    <p>X = average expression | Y = fold change</p>
+    <p>Used to check for bias – most points near zero = good</p>
+  </div>
+
+  <div class="slide" data-slide="8">
+    <h1>Heatmap</h1>
+    <p>Top DEGs × samples. Red = high, blue = low.</p>
+    <p>Shows which samples cluster together and which genes change together.</p>
+  </div>
+
+  <div class="slide" data-slide="9">
+    <h1>Systems Biology</h1>
+    <p>Group DEGs by biological pathways (e.g., cell cycle, metabolism).</p>
+    <p>Up vs down regulation summary.</p>
+  </div>
+
+  <div class="slide" data-slide="10">
+    <h1>How to Run the Tutorial</h1>
+    <ol class="steps">
+      <li>Download the ZIP from the website</li>
+      <li>Extract and open the <span class="highlight">bioinformatics-tutorial</span> folder</li>
+      <li>Install R from cran.r-project.org</li>
+      <li>Double-click <span class="highlight">RUN_ANALYSIS.bat</span></li>
+      <li>Open results in 05_deg_results and 06_systems_biology</li>
+    </ol>
+  </div>
+
+  <div class="slide" data-slide="11">
+    <h1>You're Ready!</h1>
+    <p>Read START_HERE.txt and RNA-seq_Complete_Manual.md</p>
+    <p style="margin-top: 1rem;">Good luck with your analysis.</p>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const total = slides.length;
+    let current = 0;
+
+    function show(n) {
+      current = (n + total) % total;
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      document.getElementById('slideNum').textContent = (current + 1) + ' / ' + total;
+      document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); show(current + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(current - 1); }
+    });
+
+    let touchStart = 0;
+    document.addEventListener('touchstart', e => touchStart = e.changedTouches[0].screenX);
+    document.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].screenX - touchStart;
+      if (Math.abs(diff) > 50) show(current + (diff < 0 ? 1 : -1));
+    });
+
+    show(0);
+  </script>
+</body>
+</html>

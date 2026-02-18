@@ -33,6 +33,8 @@
 
 **Want to run step-by-step with explanations?** → Open **`RNA-seq_Complete_Manual.md`** for a ChatGPT-style guide: experimental design, each analysis step, and copy-paste R code with explanations.
 
+**Teaching slides:** Open **`slides/index.html`** in your browser for an 11-slide visual overview. Use ← → arrows to navigate.
+
 ---
 
 ## Your Project Assignment

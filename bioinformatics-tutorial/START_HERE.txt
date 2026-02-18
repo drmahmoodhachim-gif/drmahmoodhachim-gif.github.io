@@ -6,6 +6,13 @@
 YOUR NAME: _____________________  (Find your folder: 01_MUTHO_Epilepsy, etc.)
 
 ================================================================================
+  TEACHING SLIDES (optional - review first!)
+================================================================================
+
+  Open "slides/index.html" in your browser for an 11-slide overview.
+  Use arrow keys (← →) to navigate. No login needed.
+
+================================================================================
   HOW TO RUN (choose one - both work!)
 ================================================================================
 
