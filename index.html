@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RNA-seq Tutorial | PhD Students - DEG & Systems Biology</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #1a1a1a;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+    }
+    h1 {
+      color: #0d6efd;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #0d6efd;
+      padding-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: #6c757d;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid #dee2e6;
+    }
+    .card h2 {
+      color: #0d6efd;
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #0d6efd;
+      color: white !important;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #0b5ed7;
+    }
+    .btn-secondary {
+      background: #6c757d;
+    }
+    .btn-secondary:hover {
+      background: #5c636a;
+    }
+    .steps {
+      counter-reset: step;
+    }
+    .steps li {
+      margin: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+    }
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #0d6efd;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.5rem;
+      font-size: 0.85rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      padding: 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+    th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #495057;
+    }
+    tr:hover { background: #f8f9fa; }
+    .highlight {
+      background: #e7f1ff;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #0d6efd;
+      margin: 1rem 0;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dee2e6;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    ul { padding-left: 1.5rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      background: #0d6efd;
+      color: white;
+      margin-left: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>RNA-seq Pipeline Tutorial</h1>
+  <p class="subtitle">DEG Analysis & Systems Biology – For 7 PhD Students | No Python Required</p>
+
+  <div class="card">
+    <h2>Quick Start</h2>
+    <ol class="steps">
+      <li><strong>Download</strong> the tutorial → <a href="https://github.com/drmahmoodhachim-gif/drmahmoodhachim-gif.github.io/archive/refs/heads/main.zip" class="btn">Download ZIP</a></li>
+      <li><strong>Extract</strong> the ZIP file. Open the <strong>bioinformatics-tutorial</strong> folder inside.</li>
+      <li><strong>Install R</strong> from <a href="https://cran.r-project.org/" target="_blank">cran.r-project.org</a></li>
+      <li><strong>Run</strong> by double-clicking <code>RUN_ANALYSIS.bat</code></li>
+      <li><strong>View results</strong> in <code>05_deg_results/volcano_plot.png</code></li>
+    </ol>
+    <p class="highlight"><strong>You only need R.</strong> No Python, no command line experience required.</p>
+  </div>
+
+  <div class="card">
+    <h2>Project Assignments</h2>
+    <table>
+      <thead>
+        <tr><th>Student</th><th>Project</th><th>Folder</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mutho</td><td>Epilepsy</td><td><code>01_MUTHO_Epilepsy</code></td></tr>
+        <tr><td>Tuleen</td><td>Cardiac Genetics (Congenital)</td><td><code>02_TULEEN_CardiacGeneticsCongenital</code></td></tr>
+        <tr><td>Maryam</td><td>Diabetes Mellitus (DM)</td><td><code>03_MARYAM_DM</code></td></tr>
+        <tr><td>Zehra</td><td>Breast Cancer – Fibroblasts</td><td><code>04_ZEHRA_BreastCancerFibroblasts</code></td></tr>
+        <tr><td>Ayesha</td><td>Breast Cancer – Macrophages</td><td><code>05_AYESHA_BreastCancerMacrophages</code></td></tr>
+        <tr><td>Ahmed</td><td>Leukemia</td><td><code>06_AHMED_Leukemia</code></td></tr>
+        <tr><td>Yara</td><td>Autoimmune Asthma</td><td><code>07_YARA_AutoimmuneAsthma</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Documentation</h2>
+    <p>Read these files in your downloaded folder:</p>
+    <ul>
+      <li><strong>START_HERE.txt</strong> – First-time setup</li>
+      <li><strong>STUDENT_MANUAL.md</strong> – Full manual with troubleshooting</li>
+    </ul>
+    <a href="https://github.com/drmahmoodhachim-gif/drmahmoodhachim-gif.github.io/blob/main/bioinformatics-tutorial/STUDENT_MANUAL.md" class="btn btn-secondary">View Manual Online</a>
+  </div>
+
+  <div class="card">
+    <h2>What You'll Learn</h2>
+    <ul>
+      <li>Count matrix – Gene expression from RNA-seq</li>
+      <li>Differential expression (DESeq2)</li>
+      <li>Visualizations – Volcano plot, heatmap, MA plot</li>
+      <li>Systems biology – Pathway enrichment</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Requirements</h2>
+    <p><strong>Software:</strong> R (from <a href="https://cran.r-project.org/">CRAN</a>). Optional: <a href="https://posit.co/download/rstudio-desktop/">RStudio</a></p>
+    <p><strong>Hardware:</strong> Basic laptop. Data is small (~2 MB), runs in 1–2 minutes.</p>
+  </div>
+
+  <footer>
+    <p>RNA-seq Tutorial for PhD Students | Dr. Mahmood Hachim | No Python required</p>
+  </footer>
+</body>
+</html>

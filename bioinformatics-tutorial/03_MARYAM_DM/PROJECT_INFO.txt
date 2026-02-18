@@ -1,0 +1,14 @@
+========================================
+STUDENT: MARYAM
+PROJECT: Diabetes Mellitus (DM)
+========================================
+
+Use the RNA-seq pipeline tutorial to analyze gene expression in diabetes-related samples.
+Your synthetic data simulates: Control vs Treatment (e.g., healthy vs diabetic/islet dysfunction).
+
+When you run the pipeline, interpret your DEGs in the context of:
+- Insulin signaling, glucose metabolism
+- Beta-cell function and survival
+- Inflammatory pathways in diabetes
+
+→ Read START_HERE.txt in main folder, then double-click RUN_ANALYSIS.bat

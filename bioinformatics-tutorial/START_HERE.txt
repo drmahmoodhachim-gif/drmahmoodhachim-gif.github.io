@@ -1,0 +1,55 @@
+================================================================================
+  RNA-seq TUTORIAL FOR PhD STUDENTS
+  No Python needed. No programming experience required.
+================================================================================
+
+YOUR NAME: _____________________  (Find your folder: 01_MUTHO_Epilepsy, etc.)
+
+================================================================================
+  HOW TO RUN (choose one - both work!)
+================================================================================
+
+  EASIEST: Double-click "RUN_ANALYSIS.bat"
+           (A window will open, wait 1-2 minutes, then check the results folders)
+
+  OR:      1. Open RStudio (or R)
+           2. File > Open > select "run_all_in_R.R"
+           3. Click the "Source" button (or press Ctrl+Shift+Enter)
+
+================================================================================
+  BEFORE FIRST TIME (install R - one time only)
+================================================================================
+
+  1. Download R: https://cran.r-project.org/
+     - Click "Download R for Windows"
+     - Run the installer
+     - IMPORTANT: When asked, CHECK "Add R to the system PATH"
+       (This lets the .bat file find R. If you miss this, use RStudio instead)
+
+  2. Optional but helpful: Download RStudio: https://posit.co/download/rstudio-desktop/
+     - Free version is fine
+
+  3. First run only: R will ask to install some packages.
+     - Type "y" and press Enter when asked
+     - Or run this in R first:
+       if (!require("BiocManager")) install.packages("BiocManager")
+       BiocManager::install(c("DESeq2","ggplot2","pheatmap","RColorBrewer"))
+
+================================================================================
+  WHERE ARE MY RESULTS?
+================================================================================
+
+  After running, open these folders:
+    - 05_deg_results     --> volcano_plot.png, heatmap, DEG list
+    - 06_systems_biology  --> pathway barplot
+
+  Double-click any .png or .pdf file to open it!
+
+================================================================================
+  NEED HELP?
+================================================================================
+
+  - Read STUDENT_MANUAL.md for full instructions
+  - Read PROJECT_INFO.txt in your project folder (01_MUTHO_Epilepsy, etc.)
+
+================================================================================

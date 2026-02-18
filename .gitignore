@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+*.Rproj
+.Rhistory
+04_counts/
+05_deg_results/
+06_systems_biology/

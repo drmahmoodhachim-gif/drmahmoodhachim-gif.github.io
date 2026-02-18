@@ -1,0 +1,14 @@
+========================================
+STUDENT: AYESHA
+PROJECT: Breast Cancer - Macrophages
+========================================
+
+Use the RNA-seq pipeline tutorial to analyze gene expression in tumor-associated macrophages.
+Your synthetic data simulates: Control vs Treatment (e.g., naive macrophages vs TAMs).
+
+When you run the pipeline, interpret your DEGs in the context of:
+- Tumor-associated macrophages (TAMs), M1/M2 polarization
+- Immune evasion, immunosuppression
+- Phagocytosis, cytokine signaling
+
+→ Read START_HERE.txt in main folder, then double-click RUN_ANALYSIS.bat

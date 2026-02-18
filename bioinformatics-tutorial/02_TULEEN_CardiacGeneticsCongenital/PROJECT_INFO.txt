@@ -1,0 +1,14 @@
+========================================
+STUDENT: TULEEN
+PROJECT: Cardiac Genetics (Congenital)
+========================================
+
+Use the RNA-seq pipeline tutorial to analyze gene expression in congenital cardiac conditions.
+Your synthetic data simulates: Control vs Treatment (e.g., healthy vs congenital heart defect).
+
+When you run the pipeline, interpret your DEGs in the context of:
+- Cardiomyocyte development genes
+- Congenital heart disease genes (NKX2-5, TBX5, GATA4)
+- Cardiac morphogenesis pathways
+
+→ Read START_HERE.txt in main folder, then double-click RUN_ANALYSIS.bat

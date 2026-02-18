@@ -1,0 +1,14 @@
+========================================
+STUDENT: MUTHO
+PROJECT: Epilepsy
+========================================
+
+Use the RNA-seq pipeline tutorial to analyze gene expression in epilepsy-related samples.
+Your synthetic data simulates: Control vs Treatment (e.g., seizure vs non-seizure conditions).
+
+When you run the pipeline, interpret your DEGs in the context of:
+- Ion channels, neurotransmitter receptors
+- Synaptic plasticity genes
+- Epileptogenesis pathways
+
+→ Read START_HERE.txt in main folder, then double-click RUN_ANALYSIS.bat

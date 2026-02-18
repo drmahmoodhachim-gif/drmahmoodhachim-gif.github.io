@@ -1,0 +1,14 @@
+========================================
+STUDENT: ZEHRA
+PROJECT: Breast Cancer - Fibroblasts
+========================================
+
+Use the RNA-seq pipeline tutorial to analyze gene expression in cancer-associated fibroblasts.
+Your synthetic data simulates: Control vs Treatment (e.g., normal fibroblasts vs CAFs).
+
+When you run the pipeline, interpret your DEGs in the context of:
+- Cancer-associated fibroblast (CAF) markers
+- Extracellular matrix remodeling
+- Tumor microenvironment, stroma-tumor crosstalk
+
+→ Read START_HERE.txt in main folder, then double-click RUN_ANALYSIS.bat

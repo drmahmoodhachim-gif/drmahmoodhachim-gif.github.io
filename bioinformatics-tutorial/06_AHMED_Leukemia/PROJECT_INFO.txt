@@ -1,0 +1,14 @@
+========================================
+STUDENT: AHMED
+PROJECT: Leukemia
+========================================
+
+Use the RNA-seq pipeline tutorial to analyze gene expression in leukemia samples.
+Your synthetic data simulates: Control vs Treatment (e.g., healthy vs leukemic blasts).
+
+When you run the pipeline, interpret your DEGs in the context of:
+- Hematopoietic differentiation genes
+- Leukemia drivers (e.g., fusion genes, mutations)
+- Cell cycle, apoptosis in blood cancer
+
+→ Read START_HERE.txt in main folder, then double-click RUN_ANALYSIS.bat

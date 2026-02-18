@@ -1,0 +1,14 @@
+========================================
+STUDENT: YARA
+PROJECT: Autoimmune Asthma
+========================================
+
+Use the RNA-seq pipeline tutorial to analyze gene expression in autoimmune asthma.
+Your synthetic data simulates: Control vs Treatment (e.g., healthy airway vs asthmatic/inflamed).
+
+When you run the pipeline, interpret your DEGs in the context of:
+- Th2/Th17 immune responses, eosinophils
+- Airway remodeling, smooth muscle
+- Allergic inflammation, IgE pathways
+
+→ Read START_HERE.txt in main folder, then double-click RUN_ANALYSIS.bat
