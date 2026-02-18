@@ -158,6 +158,19 @@ chmod +x RUN_ANALYSIS.sh
 
 ---
 
+### Mac: "Setting LC_CTYPE failed" / "non-UTF8 locale" warnings
+
+**What you see:** Warnings when R starts: "Setting LC_CTYPE failed...", "You're using a non-UTF8 locale..."
+
+**Fix:** The script usually still runs. If you get errors, run this in R first:
+```r
+Sys.setenv(LANG = "en_US.UTF-8")
+Sys.setenv(LC_ALL = "en_US.UTF-8")
+```
+Then run the script. Or see MAC_INSTRUCTIONS.md for the Terminal method.
+
+---
+
 ## Still stuck?
 
 1. **Copy the full error message** (select the red text, Cmd+C on Mac)

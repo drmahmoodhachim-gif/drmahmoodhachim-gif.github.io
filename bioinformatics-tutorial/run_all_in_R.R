@@ -13,7 +13,16 @@
 #   BiocManager::install(c("DESeq2","ggplot2","pheatmap","RColorBrewer"))
 #
 # ERRORS? See COMMON_ERRORS.md
+# MAC USERS? See MAC_INSTRUCTIONS.md (don't use .bat file)
 # =============================================================================
+
+# Fix locale warnings on Mac (harmless on Windows)
+tryCatch({
+  if (Sys.info()["sysname"] == "Darwin") {
+    Sys.setenv(LANG = "en_US.UTF-8")
+    Sys.setenv(LC_ALL = "en_US.UTF-8")
+  }
+}, error = function(e) NULL)
 
 # Set working directory to script location (when running from RStudio)
 # This helps if you opened the file from a different folder
