@@ -181,6 +181,22 @@
   </div>
 
   <div class="card">
+    <h2>Analysis Steps – What Each Step Means</h2>
+    <table>
+      <thead><tr><th>Step</th><th>What It Does</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Count matrix</strong></td><td>Table of reads per gene per sample (rows=genes, columns=samples)</td><td>Raw expression data – higher counts = more mRNA = gene more active</td></tr>
+        <tr><td><strong>2. DESeq2</strong></td><td>Compares Control vs Treatment, tests which genes differ</td><td>Gives fold change, p-value, padj – identifies significant DEGs statistically</td></tr>
+        <tr><td><strong>3. Volcano plot</strong></td><td>X=fold change, Y=significance (−log10 padj)</td><td>Quick view of which genes are large and significant (red = DEGs)</td></tr>
+        <tr><td><strong>4. MA plot</strong></td><td>X=mean expression, Y=fold change</td><td>Checks for bias – ensures low-count genes aren’t spurious</td></tr>
+        <tr><td><strong>5. Heatmap</strong></td><td>Top DEGs × samples, color = expression level</td><td>Shows patterns – which samples cluster, which genes change together</td></tr>
+        <tr><td><strong>6. Pathway barplot</strong></td><td>DEGs grouped by biological pathway</td><td>Moves from genes to biology – which processes are affected</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Key terms:</strong> <em>log2FC</em> = fold change (positive = up, negative = down); <em>padj</em> = adjusted p-value (&lt;0.05 = significant); <em>DEG</em> = differentially expressed gene.</p>
+  </div>
+
+  <div class="card">
     <h2>Requirements</h2>
     <p><strong>Software:</strong> R (from <a href="https://cran.r-project.org/">CRAN</a>). Optional: <a href="https://posit.co/download/rstudio-desktop/">RStudio</a></p>
     <p><strong>Hardware:</strong> Basic laptop. Data is small (~2 MB), runs in 1–2 minutes.</p>

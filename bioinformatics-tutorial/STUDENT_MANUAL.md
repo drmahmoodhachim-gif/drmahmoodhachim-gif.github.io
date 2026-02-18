@@ -14,11 +14,12 @@
 4. [Detailed First-Time Setup](#detailed-first-time-setup)
 5. [How to Run – Step by Step](#how-to-run--step-by-step)
 6. [Understanding Your Results](#understanding-your-results)
-7. [Interpreting Results for Your Project](#interpreting-results-for-your-project)
-8. [Complete Troubleshooting Guide](#complete-troubleshooting-guide)
-9. [Checklist](#checklist)
-10. [Folder Structure](#folder-structure)
-11. [Next Steps](#next-steps)
+7. [Analysis Steps Explained – What Each Step Means](#analysis-steps-explained--what-each-step-means)
+8. [Interpreting Results for Your Project](#interpreting-results-for-your-project)
+9. [Complete Troubleshooting Guide](#complete-troubleshooting-guide)
+10. [Checklist](#checklist)
+11. [Folder Structure](#folder-structure)
+12. [Next Steps](#next-steps)
 
 ---
 
@@ -191,6 +192,187 @@ BiocManager::install(c("DESeq2","ggplot2","pheatmap","RColorBrewer"))
 - **Rows:** Top differentially expressed genes.
 - **Columns:** Your 8 samples (CTRL_01–04, TREAT_01–04).
 - **Colors:** Expression level (red = high, blue = low after Z-scoring).
+
+---
+
+## Analysis Steps Explained – What Each Step Means
+
+This section explains *what* each analysis step does and *why* it matters for your research.
+
+---
+
+### Step 1: Count Matrix (04_counts/count_matrix.csv)
+
+**What it is**
+
+A table where each row is a gene and each column is a sample. Each cell is the number of RNA-seq reads that mapped to that gene in that sample.
+
+**What it means biologically**
+
+- **Higher counts** = more mRNA from that gene = the gene is more highly expressed in that sample.
+- RNA-seq measures how much of each gene’s mRNA is present in the tissue or cells.
+- Counts are integer values (1, 2, 3, …) because they count discrete sequencing reads.
+
+**Why it matters**
+
+The count matrix is the main input for differential expression. You compare counts across conditions (e.g. Control vs Treatment) to see which genes change.
+
+**In your project**
+
+- Rows: ~50 genes.
+- Columns: 8 samples (4 Control, 4 Treatment).
+
+---
+
+### Step 2: Differential Expression Analysis (DESeq2)
+
+**What it does**
+
+DESeq2 compares gene expression between two conditions (e.g. Control vs Treatment) and tests which genes are significantly different.
+
+**Main outputs**
+
+| Term | Meaning |
+|------|---------|
+| **log2 Fold Change (log2FC)** | How much expression changes. Positive = higher in Treatment; negative = lower. log2FC = 1 means 2×; log2FC = 2 means 4×. |
+| **p-value** | Probability the observed difference is due to chance. Smaller = more likely real. |
+| **padj (adjusted p-value)** | p-value corrected for multiple testing (many genes tested). We use padj &lt; 0.05 as significant. |
+| **baseMean** | Average expression across all samples. |
+
+**What it means biologically**
+
+- **log2FC &gt; 0** → gene is **upregulated** in Treatment (e.g. disease).
+- **log2FC &lt; 0** → gene is **downregulated** in Treatment.
+- **padj &lt; 0.05** → we treat the change as statistically significant.
+
+**Why it matters**
+
+DESeq2 accounts for:
+- Biological variability between replicates.
+- Different sequencing depths across samples.
+- Low-count genes that are harder to estimate.
+
+This gives more reliable lists of differentially expressed genes (DEGs).
+
+---
+
+### Step 3: Volcano Plot (volcano_plot.png)
+
+**What it shows**
+
+A scatter plot of all genes with:
+- **X-axis:** log2 Fold Change (direction of change).
+- **Y-axis:** −log10(padj) (statistical significance).
+
+**How to read it**
+
+- **Upper right:** upregulated and significant (padj &lt; 0.05, log2FC &gt; 1).
+- **Upper left:** downregulated and significant (padj &lt; 0.05, log2FC &lt; −1).
+- **Dashed horizontal line:** padj = 0.05.
+- **Dashed vertical lines:** log2FC = ±1 (2× change).
+- **Red points:** genes we call significant DEGs.
+
+**What it means biologically**
+
+- Points far from zero on the x-axis = strong fold changes.
+- Points high on the y-axis = strong statistical support.
+- Genes in the upper corners are the best candidates for follow-up (e.g. validation, pathway analysis).
+
+**Why we use it**
+
+A volcano plot shows both effect size (fold change) and significance in one view, so you can quickly identify genes that are both large and reliable.
+
+---
+
+### Step 4: MA Plot (ma_plot.pdf)
+
+**What it shows**
+
+- **X-axis:** average expression (log10 scale).
+- **Y-axis:** log2 Fold Change.
+
+**How to read it**
+
+- Most points hover around y = 0 (no change).
+- Significant DEGs are above or below y = 0.
+- We check whether lowly expressed genes (left side) cluster oddly along the y-axis.
+
+**What it means biologically**
+
+- **Good:** DEGs spread across expression levels; no clear bias toward low counts.
+- **Warning:** Many DEGs only among lowly expressed genes can indicate batch or technical bias rather than biology.
+
+**Why we use it**
+
+The MA plot helps check if the analysis is biased. DESeq2 shrinks estimates for low-count genes, and the MA plot shows whether that and other assumptions look reasonable.
+
+---
+
+### Step 5: Heatmap (heatmap_top_deg.pdf)
+
+**What it shows**
+
+A grid where:
+- **Rows:** top differentially expressed genes.
+- **Columns:** samples (CTRL_01–04, TREAT_01–04).
+- **Color:** expression level (Z-score: how many standard deviations from the mean).
+
+**How to read it**
+
+- **Red:** higher than average for that gene.
+- **Blue:** lower than average for that gene.
+- **White:** near average.
+
+**What it means biologically**
+
+- **Vertical patterns:** samples that cluster together have similar expression profiles.
+- **Horizontal patterns:** genes that change together may be in the same pathway or regulated by the same factor.
+- **Control vs Treatment:** you expect distinct clusters (e.g. CTRL vs TREAT in different blocks).
+
+**Why we use it**
+
+The heatmap summarizes expression of key genes across samples and supports quality checks (e.g. replicates grouping, separation of conditions).
+
+---
+
+### Step 6: Systems Biology – Pathway Barplot & Regulation Summary
+
+**What it shows**
+
+- **Pathway barplot:** how many DEGs fall into each biological pathway (e.g. cell cycle, apoptosis).
+- **Regulation summary:** how many DEGs are upregulated vs downregulated.
+
+**What it means biologically**
+
+- **Pathways** are sets of genes that work together (e.g. same metabolic pathway, signaling cascade).
+- If many DEGs belong to one pathway, that pathway is likely affected by your condition.
+- **Up vs down** tells you whether the condition generally activates or represses gene expression.
+
+**Why it matters**
+
+- Moves you from single genes to biological processes.
+- Suggests mechanisms (e.g. “cell cycle dysregulated in disease”).
+- Gives context for individual genes you might validate.
+
+**In this tutorial**
+
+We use simple, illustrative pathways. With real data you would use databases (GO, KEGG) and tools like `clusterProfiler` for proper pathway enrichment.
+
+---
+
+### Summary: The Flow of Your Analysis
+
+```
+Count matrix (raw data)
+    ↓
+DESeq2 (statistical testing)
+    ↓
+Volcano plot, MA plot (visual QC and overview)
+    ↓
+Heatmap (top DEGs across samples)
+    ↓
+Pathway analysis (biological meaning)
+```
 
 ---
 
