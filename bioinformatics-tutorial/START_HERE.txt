@@ -43,6 +43,18 @@ YOUR NAME: _____________________  (Find your folder: 01_MUTHO_Epilepsy, etc.)
        BiocManager::install(c("DESeq2","ggplot2","pheatmap","RColorBrewer"))
 
 ================================================================================
+  SUBMIT YOUR RESULTS
+================================================================================
+
+  After the analysis, upload:
+    - volcano_plot.png (from 05_deg_results)
+    - pathway_barplot.png (from 06_systems_biology)
+    - significant_deg.csv (from 05_deg_results)
+  Plus a brief description: your name, project, # of DEGs, and 1-2 findings.
+
+  Go to the tutorial website and click "Upload Results".
+
+================================================================================
   WHERE ARE MY RESULTS?
 ================================================================================
 

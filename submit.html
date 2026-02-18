@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Your Results | RNA-seq Tutorial</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; max-width: 700px; margin: 0 auto; padding: 2rem; background: #f8f9fa; }
+    h1 { color: #0d6efd; }
+    .card { background: white; padding: 1.5rem; margin: 1rem 0; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .btn { display: inline-block; background: #0d6efd; color: white !important; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 1rem 0; }
+    .btn:hover { background: #0b5ed7; }
+    ul { padding-left: 1.5rem; }
+    li { margin: 0.5rem 0; }
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li::before { content: "☐ "; font-size: 1.2rem; }
+    code { background: #e9ecef; padding: 0.2rem 0.4rem; border-radius: 4px; }
+    .back { color: #666; font-size: 0.9rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back">← Back to Tutorial</a>
+
+  <h1>Submit Your Results</h1>
+
+  <div class="card">
+    <h2>What to Upload</h2>
+    <ul class="checklist">
+      <li><strong>volcano_plot.png</strong> – Volcano plot showing your DEGs (from <code>05_deg_results/</code>)</li>
+      <li><strong>pathway_barplot.png</strong> – Pathway barplot (from <code>06_systems_biology/</code>)</li>
+      <li><strong>significant_deg.csv</strong> – List of significant genes (from <code>05_deg_results/</code>)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Brief Description to Include</h2>
+    <p>Write 2–3 sentences describing:</p>
+    <ul>
+      <li>Your name and project (e.g., Mutho – Epilepsy)</li>
+      <li>How many significant DEGs you found</li>
+      <li>One or two genes or pathways that stand out to you (and why, in the context of your project)</li>
+    </ul>
+    <p><em>Example:</em> "I am Mutho, working on epilepsy. I found 10 significant DEGs. GENE_001 and GENE_002 were strongly upregulated, which could relate to ion channel dysfunction in seizure disorders."</p>
+  </div>
+
+  <div class="card">
+    <h2>Upload Your Results</h2>
+    <p>Click the button below to submit your files and description.</p>
+    <!-- INSTRUCTOR: Edit line below - replace # with your Google Form URL (e.g. https://forms.gle/xxxxx) -->
+    <a href="#" id="submit-link" class="btn" target="_blank">Submit Results Here</a>
+    <p style="color:#666; font-size:0.9rem; margin-top:1rem;">Your instructor will provide the submission link. See <a href="index.html">main page</a> for the upload form.</p>
+  </div>
+</body>
+</html>
