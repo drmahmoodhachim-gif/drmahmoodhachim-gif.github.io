@@ -47,7 +47,7 @@ for (i in 1:50) {
   count_matrix[i, ] <- c(ctrl_vals, treat_vals)
 }
 
-count_matrix <- count_matrix + sample(-3:3, 400, replace = TRUE)
+count_matrix <- count_matrix + matrix(rpois(400, 2), 50, 8)
 count_matrix <- pmax(1, count_matrix)
 
 rownames(count_matrix) <- genes
