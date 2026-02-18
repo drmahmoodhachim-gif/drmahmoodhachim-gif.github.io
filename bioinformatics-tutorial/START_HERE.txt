@@ -23,20 +23,22 @@ YOUR NAME: _____________________  (Find your folder: 01_MUTHO_Epilepsy, etc.)
   HOW TO RUN (choose one - both work!)
 ================================================================================
 
-  EASIEST: Double-click "RUN_ANALYSIS.bat"
+  WINDOWS: Double-click "RUN_ANALYSIS.bat"
            (A window will open, wait 1-2 minutes, then check the results folders)
 
-  OR:      1. Open RStudio (or R)
-           2. File > Open > select "run_all_in_R.R"
-           3. Click the "Source" button (or press Ctrl+Shift+Enter)
+  MAC:     Read MAC_INSTRUCTIONS.md! The .bat file does NOT work on Mac.
+           Easiest: Open RStudio > File > Open > run_all_in_R.R > Click "Source"
+
+  ALL:     Or use RStudio: File > Open > run_all_in_R.R > Click "Source"
+           (Ctrl+Shift+Enter on Windows, Cmd+Shift+Enter on Mac)
 
 ================================================================================
   BEFORE FIRST TIME (install R - one time only)
 ================================================================================
 
   1. Download R: https://cran.r-project.org/
-     - Click "Download R for Windows"
-     - Run the installer
+     - Windows: "Download R for Windows" - Run installer, check "Add R to PATH"
+     - Mac: "Download R for macOS" - Run the .pkg installer
      - IMPORTANT: When asked, CHECK "Add R to the system PATH"
        (This lets the .bat file find R. If you miss this, use RStudio instead)
 

@@ -124,8 +124,42 @@ BiocManager::install("DESeq2")
 
 ---
 
+---
+
+## Mac-Specific Issues
+
+### "RUN_ANALYSIS.bat" does nothing on Mac
+
+**Cause:** `.bat` files are for Windows only.
+
+**Fix:** Use **RStudio** (File → Open → run_all_in_R.R → Source) or see **MAC_INSTRUCTIONS.md** for the Terminal method.
+
+---
+
+### Mac: "Rscript: command not found" in Terminal
+
+**Fix:** Use **RStudio** instead – it finds R automatically. Or add R to your PATH (R installs to `/Library/Frameworks/R.framework/`).
+
+---
+
+### Mac: "Permission denied" when running RUN_ANALYSIS.sh
+
+**Fix:** In Terminal:
+```bash
+chmod +x RUN_ANALYSIS.sh
+./RUN_ANALYSIS.sh
+```
+
+---
+
+### Mac: Double-clicking .sh file opens it in TextEdit
+
+**Fix:** Use **RStudio** or run from Terminal: `bash RUN_ANALYSIS.sh` (see MAC_INSTRUCTIONS.md).
+
+---
+
 ## Still stuck?
 
-1. **Copy the full error message** (select the red text, Ctrl+C)
+1. **Copy the full error message** (select the red text, Cmd+C on Mac)
 2. **Take a screenshot** of the R/RStudio window
 3. **Send both** to your instructor with a note about what you did (e.g. "I double-clicked RUN_ANALYSIS.bat")
