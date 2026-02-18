@@ -31,14 +31,14 @@ Then run the analysis again.
 
 **What you see:** Error about file not found or wrong directory
 
-**Fix:** You must run the script from inside the **bioinformatics-tutorial** folder.
+**Fix:** You must run the script from the **bioinformatics-tutorial** folder (the one containing run_all_in_R.R), **not** from 01_MUTHO_Epilepsy or other student folders.
 
-- **If using .bat:** Double-click `RUN_ANALYSIS.bat` from inside the bioinformatics-tutorial folder (not from the main extracted folder).
-- **If using RStudio:** Before clicking Source, run:
+- **If using .bat:** Double-click `RUN_ANALYSIS.bat` from inside the bioinformatics-tutorial folder.
+- **If using RStudio:** Open `run_all_in_R.R` from bioinformatics-tutorial. Before Source, run:
   ```r
   setwd("C:/Users/YOUR_USERNAME/Desktop/drmahmoodhachim-gif.github.io-main/bioinformatics-tutorial")
   ```
-  (Change the path to where YOUR folder is. Use forward slashes / not backslashes.)
+  (Change the path to where YOUR bioinformatics-tutorial folder is. Use forward slashes.)
 
 ---
 
@@ -61,7 +61,15 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 6. "subscript out of bounds" or "replacement has X rows, data has Y"
+## 6. "attempt to set 'rownames' on an object with no dimensions"
+
+**What you see:** Error at Step 1, when creating synthetic data
+
+**Fix:** This was a bug in older versions of the tutorial – now fixed. Re-download the tutorial from the website to get the latest version. If you already have the latest, the script should work.
+
+---
+
+## 7. "subscript out of bounds" or "replacement has X rows, data has Y"
 
 **What you see:** Red error with those words
 
@@ -69,7 +77,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 7. Window closes immediately / I can't read the error
+## 8. Window closes immediately / I can't read the error
 
 **What you see:** Black window flashes and closes
 
@@ -81,7 +89,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 8. "Access is denied" or "Permission denied"
+## 9. "Access is denied" or "Permission denied"
 
 **What you see:** Error when writing files
 
@@ -92,7 +100,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 9. Antivirus blocking or files not created
+## 10. Antivirus blocking or files not created
 
 **What you see:** Script says "DONE" but no PDF/PNG files, or antivirus message
 
@@ -100,7 +108,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 10. "object 'sig' not found" or "object 'res_df' not found"
+## 11. "object 'sig' not found" or "object 'res_df' not found"
 
 **What you see:** Error about object not found
 

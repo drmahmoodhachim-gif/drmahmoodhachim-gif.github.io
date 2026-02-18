@@ -116,7 +116,8 @@ for (i in 1:50) {
   count_matrix[i, ] <- c(ctrl_vals, treat_vals)
 }
 
-count_matrix <- pmax(1, count_matrix + sample(-3:3, 400, replace = TRUE))
+count_matrix <- count_matrix + sample(-3:3, 400, replace = TRUE)
+count_matrix[] <- pmax(1, count_matrix)  # [] keeps matrix structure
 rownames(count_matrix) <- genes
 colnames(count_matrix) <- samples
 
