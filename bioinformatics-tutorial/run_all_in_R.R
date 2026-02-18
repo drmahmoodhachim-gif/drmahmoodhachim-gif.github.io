@@ -129,8 +129,17 @@ ggsave("05_deg_results/volcano_plot.pdf", p_volcano, width = 6, height = 5)
 ggsave("05_deg_results/volcano_plot.png", p_volcano, width = 6, height = 5, dpi = 150)
 
 # --- Heatmap ---
-vsd <- vst(dds, blind = FALSE)
-mat <- assay(vsd)
+# For small gene sets (<1000 rows), vst() can fail; use fallbacks
+mat <- tryCatch({
+  vsd <- vst(dds, blind = FALSE, nsub = min(500, nrow(dds)))
+  assay(vsd)
+}, error = function(e) {
+  tryCatch({
+    assay(varianceStabilizingTransformation(dds, blind = FALSE))
+  }, error = function(e2) {
+    log2(counts(dds, normalized = TRUE) + 1)
+  })
+})
 if (nrow(sig) > 0) {
   top_genes <- rownames(sig)[1:min(20, nrow(sig))]
   mat_heat <- mat[top_genes, ]
