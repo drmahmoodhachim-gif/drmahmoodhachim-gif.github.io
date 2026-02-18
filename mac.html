@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mac Instructions – RNA-seq Tutorial</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #1a1a1a;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+    }
+    h1 {
+      color: #0d6efd;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #0d6efd;
+      padding-bottom: 0.5rem;
+    }
+    .subtitle { color: #6c757d; font-size: 1rem; margin-bottom: 2rem; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid #dee2e6;
+    }
+    .card h2 {
+      color: #0d6efd;
+      font-size: 1.2rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    .warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+    .btn {
+      display: inline-block;
+      background: #0d6efd;
+      color: white !important;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #0b5ed7; }
+    .btn-secondary { background: #6c757d; }
+    .btn-secondary:hover { background: #5c636a; }
+    pre, code {
+      background: #f8f9fa;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Consolas', monospace;
+      font-size: 0.9rem;
+    }
+    pre {
+      padding: 1rem;
+      overflow-x: auto;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+    }
+    pre code { padding: 0; background: none; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      padding: 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+    th { background: #f8f9fa; font-weight: 600; }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dee2e6;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    ul { padding-left: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h1>Mac Instructions – RNA-seq Tutorial</h1>
+  <p class="subtitle">If you have a Mac, follow these steps.</p>
+
+  <div class="warning">
+    <strong>⚠️ Do not use RUN_ANALYSIS.bat</strong> – it is for Windows only and will not work on Mac.
+  </div>
+
+  <div class="card">
+    <h2>Quick Start (Mac)</h2>
+    <ol>
+      <li><strong>Install R</strong> from <a href="https://cran.r-project.org/" target="_blank">cran.r-project.org</a> → click <strong>"Download R for macOS"</strong></li>
+      <li><strong>Install RStudio</strong> from <a href="https://posit.co/download/rstudio-desktop/" target="_blank">posit.co</a> (recommended)</li>
+      <li><strong>Open RStudio</strong> → File → Open → select <code>run_all_in_R.R</code> from the bioinformatics-tutorial folder</li>
+      <li><strong>Click Source</strong> (or Cmd+Shift+Enter)</li>
+      <li>Wait 1–2 minutes, then check <code>05_deg_results/</code> and <code>06_systems_biology/</code></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Option 1: RStudio (Easiest for Mac)</h2>
+    <ol>
+      <li>Open <strong>RStudio</strong></li>
+      <li><strong>File</strong> → <strong>Open File</strong> → go to your <code>bioinformatics-tutorial</code> folder → select <strong>run_all_in_R.R</strong></li>
+      <li>Click the <strong>Source</strong> button (top-right of the script panel)</li>
+      <li>Watch the Console for progress. When you see "DONE!", open the results folders.</li>
+    </ol>
+    <p><strong>If you get "cannot open file" or "wrong directory":</strong> In the R Console, run (change the path to match your folder):</p>
+    <pre><code>setwd("/Users/YOUR_USERNAME/Desktop/drmahmoodhachim-gif.github.io-main/bioinformatics-tutorial")</code></pre>
+    <p>Then click <strong>Source</strong> again.</p>
+  </div>
+
+  <div class="card">
+    <h2>Option 2: Terminal + Shell Script</h2>
+    <ol>
+      <li>Open <strong>Terminal</strong> (Applications → Utilities → Terminal)</li>
+      <li>Go to the tutorial folder:
+        <pre><code>cd ~/Desktop/drmahmoodhachim-gif.github.io-main/bioinformatics-tutorial</code></pre>
+        (Adjust the path if your folder is elsewhere – e.g. Downloads)
+      </li>
+      <li>Make the script executable (first time only):
+        <pre><code>chmod +x RUN_ANALYSIS.sh</code></pre>
+      </li>
+      <li>Run it:
+        <pre><code>./RUN_ANALYSIS.sh</code></pre>
+        Or: <code>bash RUN_ANALYSIS.sh</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Common Mac Issues</h2>
+
+    <h3>Locale warnings: "Setting LC_CTYPE failed" / "non-UTF8 locale"</h3>
+    <p><strong>What you see:</strong> Warnings in R like "Setting LC_CTYPE failed, using 'C'" and "You're using a non-UTF8 locale, therefore only ASCII characters will work."</p>
+    <p><strong>Fix – run this in R before clicking Source:</strong></p>
+    <pre><code>Sys.setenv(LANG = "en_US.UTF-8")
+Sys.setenv(LC_ALL = "en_US.UTF-8")</code></pre>
+    <p>Or in <strong>Terminal</strong> (before opening R):</p>
+    <pre><code>export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8</code></pre>
+    <p>The script will usually still run despite these warnings. If you get errors with special characters, the above fixes help.</p>
+
+    <h3>"Rscript: command not found"</h3>
+    <p><strong>Cause:</strong> R is installed but not in the Terminal PATH.</p>
+    <p><strong>Fix:</strong> Use <strong>RStudio</strong> instead (Option 1 above). RStudio finds R automatically.</p>
+
+    <h3>"Permission denied" when running RUN_ANALYSIS.sh</h3>
+    <pre><code>chmod +x RUN_ANALYSIS.sh
+./RUN_ANALYSIS.sh</code></pre>
+
+    <h3>Double-clicking RUN_ANALYSIS.sh opens it in TextEdit</h3>
+    <p><strong>Cause:</strong> Mac opens .sh files in a text editor by default.</p>
+    <p><strong>Fix:</strong> Use Terminal (Option 2) or RStudio (Option 1). Don't double-click the .sh file.</p>
+
+    <h3>"run_all_in_R.R" cannot be opened because it is from an unidentified developer</h3>
+    <p><strong>Cause:</strong> Mac security (Gatekeeper) blocking files from the internet.</p>
+    <p><strong>Fix:</strong> Right-click the file → <strong>Open</strong> → <strong>Open</strong> again to confirm. Or: System Settings → Privacy & Security → allow the app.</p>
+
+    <h3>"cannot open file '04_counts/count_matrix.csv'"</h3>
+    <p><strong>Cause:</strong> Working directory is wrong.</p>
+    <p><strong>Fix:</strong> In RStudio, before clicking Source, run:</p>
+    <pre><code>setwd("/Users/YOUR_USERNAME/Desktop/drmahmoodhachim-gif.github.io-main/bioinformatics-tutorial")</code></pre>
+    <p>Replace <code>YOUR_USERNAME</code> with your Mac username. Use the path where your folder actually is (e.g. Downloads).</p>
+  </div>
+
+  <div class="card">
+    <h2>Path on Mac vs Windows</h2>
+    <table>
+      <thead><tr><th>Windows</th><th>Mac</th></tr></thead>
+      <tbody>
+        <tr><td><code>C:\Users\Name\Desktop\</code></td><td><code>/Users/Name/Desktop/</code></td></tr>
+        <tr><td>Backslash <code>\</code></td><td>Forward slash <code>/</code></td></tr>
+      </tbody>
+    </table>
+    <p>In R, always use <strong>forward slashes</strong> <code>/</code> in paths, even on Windows.</p>
+  </div>
+
+  <div class="card">
+    <h2>Summary</h2>
+    <p><strong>Recommended for Mac:</strong> Use <strong>RStudio</strong> + <strong>Source</strong> on <code>run_all_in_R.R</code>. No Terminal or shell script needed.</p>
+  </div>
+
+  <p>
+    <a href="index.html" class="btn">← Back to Tutorial Home</a>
+    <a href="https://github.com/drmahmoodhachim-gif/drmahmoodhachim-gif.github.io/archive/refs/heads/main.zip" class="btn btn-secondary">Download ZIP</a>
+  </p>
+
+  <footer>
+    <p>RNA-seq Tutorial for PhD Students | Dr. Mahmood Hachim</p>
+  </footer>
+</body>
+</html>
