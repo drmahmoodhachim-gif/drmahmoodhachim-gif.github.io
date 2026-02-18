@@ -11,7 +11,19 @@
 # First time: Install packages (run once in R):
 #   if (!require("BiocManager")) install.packages("BiocManager")
 #   BiocManager::install(c("DESeq2","ggplot2","pheatmap","RColorBrewer"))
+#
+# ERRORS? See COMMON_ERRORS.md
 # =============================================================================
+
+# Set working directory to script location (when running from RStudio)
+# This helps if you opened the file from a different folder
+tryCatch({
+  if (requireNamespace("rstudioapi", quietly = TRUE)) {
+    if (rstudioapi::isAvailable()) {
+      setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+    }
+  }
+}, error = function(e) NULL)
 
 cat("\n")
 cat("========================================\n")
@@ -60,6 +72,15 @@ cat("   Created: 04_counts/count_matrix.csv\n\n")
 # --- Step 2: DEG Analysis ---
 cat("[Step 2] Differential expression analysis (DESeq2)...\n")
 
+# Load packages - show helpful message if missing
+pkgs <- c("DESeq2", "ggplot2", "pheatmap", "RColorBrewer")
+for (pkg in pkgs) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    stop("Package '", pkg, "' is not installed. Run this in R first:\n",
+         "  BiocManager::install(c(\"DESeq2\",\"ggplot2\",\"pheatmap\",\"RColorBrewer\"))\n",
+         "Then run this script again. See COMMON_ERRORS.md for more help.")
+  }
+}
 library(DESeq2)
 library(ggplot2)
 library(pheatmap)

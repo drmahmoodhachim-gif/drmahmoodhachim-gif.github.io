@@ -62,7 +62,19 @@ echo Found R. Running analysis... (1-2 minutes)
 echo.
 
 cd /d "%~dp0"
-%RSCRIPT% run_all_in_R.R
+
+REM Show current folder (helps if path has issues)
+echo Working folder: %CD%
+echo.
+
+%RSCRIPT% run_all_in_R.R 2>&1
+
+if %ERRORLEVEL% NEQ 0 (
+    echo.
+    echo ERROR: The analysis failed. See the red error message above.
+    echo Check COMMON_ERRORS.md in this folder for solutions.
+    echo.
+)
 
 echo.
 echo ========================================
