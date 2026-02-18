@@ -31,6 +31,8 @@
 2. **Double-click** `RUN_ANALYSIS.bat` (or open `run_all_in_R.R` in RStudio and click **Source**)
 3. **View results** in `05_deg_results/volcano_plot.png` and `06_systems_biology/pathway_barplot.png`
 
+**Want to run step-by-step with explanations?** → Open **`RNA-seq_Complete_Manual.md`** for a ChatGPT-style guide: experimental design, each analysis step, and copy-paste R code with explanations.
+
 ---
 
 ## Your Project Assignment

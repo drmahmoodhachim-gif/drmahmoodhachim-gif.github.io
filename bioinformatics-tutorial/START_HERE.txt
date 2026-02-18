@@ -50,6 +50,7 @@ YOUR NAME: _____________________  (Find your folder: 01_MUTHO_Epilepsy, etc.)
 ================================================================================
 
   - Read STUDENT_MANUAL.md for full instructions
+  - Read RNA-seq_Complete_Manual.md for step-by-step guide with R code to copy
   - Read PROJECT_INFO.txt in your project folder (01_MUTHO_Epilepsy, etc.)
 
 ================================================================================
