@@ -69,7 +69,15 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 7. "subscript out of bounds" or "replacement has X rows, data has Y"
+## 7. "less than 'nsub' rows" (vst error)
+
+**What you see:** Error in vst(): "less than 'nsub' rows, it is recommended to use varianceStabilizingTransformation"
+
+**Fix:** This was a bug with small datasets (50 genes) – now fixed in the latest version. Re-download the tutorial. The script now uses a fallback for small gene sets.
+
+---
+
+## 8. "subscript out of bounds" or "replacement has X rows, data has Y"
 
 **What you see:** Red error with those words
 
@@ -77,7 +85,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 8. Window closes immediately / I can't read the error
+## 9. Window closes immediately / I can't read the error
 
 **What you see:** Black window flashes and closes
 
@@ -89,7 +97,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 9. "Access is denied" or "Permission denied"
+## 10. "Access is denied" or "Permission denied"
 
 **What you see:** Error when writing files
 
@@ -100,7 +108,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 10. Antivirus blocking or files not created
+## 11. Antivirus blocking or files not created
 
 **What you see:** Script says "DONE" but no PDF/PNG files, or antivirus message
 
@@ -108,7 +116,7 @@ BiocManager::install("DESeq2")
 
 ---
 
-## 11. "object 'sig' not found" or "object 'res_df' not found"
+## 12. "object 'sig' not found" or "object 'res_df' not found"
 
 **What you see:** Error about object not found
 
