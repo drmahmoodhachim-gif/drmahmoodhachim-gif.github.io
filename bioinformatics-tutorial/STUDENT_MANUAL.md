@@ -384,6 +384,8 @@ Pathway analysis (biological meaning)
 
 ## Interpreting Results for Your Project
 
+**Important:** The "second part" of the tutorial is *not* a separate analysis. You run the pipeline once – everyone gets the same type of output (volcano, pathway barplot, DEG list). The "project-specific" part is **how you interpret** those results. Read your `PROJECT_INFO.txt` – it tells you what themes to focus on (e.g. ion channels for epilepsy). Then write 2–3 sentences linking your DEGs and pathways to your project.
+
 When you later work with real data in your project, focus on genes relevant to your disease:
 
 | Student | Project | What to Look For |

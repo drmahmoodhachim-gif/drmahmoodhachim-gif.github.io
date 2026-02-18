@@ -171,6 +171,33 @@ Then run the script. Or see MAC_INSTRUCTIONS.md for the Terminal method.
 
 ---
 
+## 13. "What is the second part? / DEGs in the individual projects?"
+
+**What you're wondering:** The instructions mention "interpret your DEGs in the context of your project" – does that mean a separate analysis for my project folder?
+
+**Answer:** No. There is **only one pipeline** – you run it once and get volcano_plot.png, pathway_barplot.png, and significant_deg.csv. The "second part" is **interpretation**, not a second run.
+
+**What to do:**
+1. Run the pipeline (Part 1) → you get the 3 outputs.
+2. **Interpret** those results in the context of your project theme (Part 2):
+   - Open your **PROJECT_INFO.txt** (e.g. 01_MUTHO_Epilepsy) – it lists what to look for (e.g. ion channels for epilepsy).
+   - Look at your volcano plot, pathway barplot, and significant_deg.csv.
+   - Write 2–3 sentences: "I found X DEGs. Pathway Y is enriched, which in my project (epilepsy/diabetes/etc.) could relate to …"
+
+**Example (Epilepsy):** "I found 10 DEGs. The pathway barplot shows Cell Cycle is enriched – in epilepsy this could relate to neuronal changes after seizures."
+
+The genes (GENE_001, GENE_002, etc.) are synthetic – the *interpretation* in your project context is what makes it "individual" to your assignment.
+
+---
+
+## 14. Submission form won't let me upload
+
+**What you see:** The Submit button goes nowhere, or the form doesn't accept files.
+
+**Fix:** Email your instructor directly. Attach volcano_plot.png, pathway_barplot.png, and significant_deg.csv. In the email body, include your name, project, number of DEGs, and 2–3 sentences about your findings. This is acceptable.
+
+---
+
 ## Still stuck?
 
 1. **Copy the full error message** (select the red text, Cmd+C on Mac)

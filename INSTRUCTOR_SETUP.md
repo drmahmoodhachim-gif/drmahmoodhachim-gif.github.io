@@ -27,9 +27,10 @@ To allow students to upload their results, create a Google Form and add the link
 ## Step 2: Add the Link to the Website
 
 1. Open **submit.html** in the repository
-2. Find the line: `href="https://forms.gle/REPLACE_WITH_YOUR_FORM_ID"`
-3. Replace `https://forms.gle/REPLACE_WITH_YOUR_FORM_ID` with your actual form link
-4. Save and push to GitHub
+2. Find the line: `href="#"` in the "Submit Results Here" button
+3. Replace `#` with your actual Google Form link (e.g. `https://forms.gle/xxxxx`)
+4. **Email fallback:** If students report they can't upload (e.g. form doesn't support files), find the "Submit via Email" section and replace `YOUR_EMAIL@university.edu` in the mailto link with your email
+5. Save and push to GitHub
 
 ---
 
